@@ -25,5 +25,12 @@ router.delete('/delete/:id', async function(req, res, next) {
         next(err)
     }
 })
+router.put('/edit',async function(req,res,next) {
+    try {
+        res.status(200).json(await todo.updateTask(req.body))
+    } catch (err) {
+        next(err)
+    }
+})
 
 module.exports = router
